@@ -1,0 +1,19 @@
+services:
+  - docker
+
+before_install:
+  - docker build -t conradmugabe/dockercitest ./client
+
+script:
+  - docker build --target test
+
+after_success:
+  - echo "this is done"
+  - echo "Welcome to a new beginning"
+
+notifications:
+  email:
+    recipients:
+      - conradmugabe@gmail.com
+    on_success: never
+    on_failure: always
