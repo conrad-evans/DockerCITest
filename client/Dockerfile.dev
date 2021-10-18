@@ -1,0 +1,16 @@
+FROM node:alpine as base
+
+WORKDIR /app
+
+COPY ./package.json .
+COPY ./package-lock.json .
+RUN npm install -g npm@7.20.6
+RUN npm ci
+COPY . .
+
+FROM base as test
+CMD [ "CI=true" "npm", "run", "test" ]
+# RUN CI=true npm test -- --coverage
+
+FROM base as dev
+CMD [ "npm", "start" ]
