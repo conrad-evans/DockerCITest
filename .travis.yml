@@ -7,7 +7,7 @@ before_install:
   - docker build -t conradmugabe/dockercitest ./client
 
 script:
-  - docker run conradmugabe/dockercitest --target test
+  - docker run -e CI=true conradmugabe/dockercitest yarn run test
 
 after_success:
   - echo "this is done"

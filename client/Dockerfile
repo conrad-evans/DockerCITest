@@ -6,12 +6,17 @@ COPY ./package.json .
 COPY ./yarn.lock .
 
 # tests env
-FROM base as test
+# FROM base as test
 
-RUN yarn test
-CMD [ "echo", "DONE" ]
+# RUN yarn install --froozen-lockfile
+
+# COPY . .
+# CMD [ "yarn", "run", "dev" ]
 
 # dev env
 FROM base as dev
 
-CMD [ "npm", "start" ]
+RUN yarn install
+COPY . .
+
+CMD [ "yarn", "start" ]
