@@ -21,7 +21,7 @@ jobs:
       # Build and test
       - name: Build and test
         run: |-
-          docker build --tag conradmugabe/react:latest -f client/Dockerfile .
+          docker build --tag conradmugabe/react:latest -f client/Dockerfile.dev .
 
       # Deploy
     # - name: Deploy to GitHub Pages

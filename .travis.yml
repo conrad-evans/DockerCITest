@@ -6,7 +6,7 @@ services:
   - docker
 
 script: 
-  - docker build --tag conradmugabe/react:latest -f client/Dockerfile .
+  - docker build --tag conradmugabe/react:latest -f client/Dockerfile.dev .
 
 after_success:
   - echo "this is done"
